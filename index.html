@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Prom Dress Size Finder — Stylish</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #f6f8ff;
+      --bg2: #fff6fb;
+      --accent1: #6a6cff;
+      --accent2: #ff7ab6;
+      --muted: #697083;
+      --card-bg: rgba(255,255,255,0.85);
+      --glass: rgba(255,255,255,0.6);
+      --radius: 14px;
+      --shadow: 0 6px 22px rgba(44,50,73,0.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin:0; background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+    }
+
+    .wrap{ max-width:1100px; margin:0 auto; }
+
+    header{
+      display:flex; align-items:center; gap:18px; margin-bottom:22px;
+    }
+    .logo {
+      width:78px; height:78px; border-radius:16px;
+      background: linear-gradient(135deg,var(--accent1),var(--accent2));
+      display:flex; align-items:center; justify-content:center; color:white; font-weight:700;
+      box-shadow: 0 8px 26px rgba(106,108,255,0.25), inset 0 -6px 12px rgba(255,255,255,0.12);
+      flex-shrink:0;
+    }
+    h1{ margin:0; font-size:1.45rem; }
+    p.lead{ margin:4px 0 0 0; color:var(--muted); font-size:0.95rem; }
+
+    .grid {
+      display:grid; grid-template-columns: 1fr 430px; gap:22px; align-items:start;
+    }
+    @media (max-width:980px){ .grid{ grid-template-columns: 1fr; } }
+
+    /* Input card (glass) */
+    .card{
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px) saturate(120%);
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .inputs { display:flex; gap:12px; flex-wrap:wrap; align-items:end; }
+    .field { display:flex; flex-direction:column; min-width:140px; }
+    label{ font-size:0.85rem; color:var(--muted); margin-bottom:6px; }
+    input[type="number"], select {
+      padding:12px 10px; font-size:1rem; border-radius:10px; border:1px solid #e6e9f2;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,247,255,0.9));
+      outline:none;
+    }
+    input[type="number"]:focus, select:focus { box-shadow: 0 6px 18px rgba(106,108,255,0.08); border-color:var(--accent1); }
+
+    .actions { display:flex; gap:10px; align-items:center; margin-top:6px; }
+    .btn {
+      background: linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white; border:none; padding:12px 16px; border-radius:10px; cursor:pointer; font-weight:600;
+      box-shadow: 0 10px 22px rgba(106,108,255,0.12);
+    }
+    .btn.secondary {
+      background:transparent; color:var(--muted); border:1px solid #eceefb;
+      padding:10px 12px; font-weight:600;
+    }
+
+    .help { font-size:0.92rem; color:var(--muted); margin-top:10px; }
+
+    /* Results column */
+    .resultsHeader { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+    .resultsGrid { display:grid; grid-template-columns: repeat(2,1fr); gap:12px; }
+    @media (max-width:720px){ .resultsGrid{ grid-template-columns: 1fr; } }
+
+    .brandCard {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,255,0.9));
+      border-radius:12px; padding:12px; box-shadow: 0 8px 18px rgba(27,35,77,0.04);
+      border:1px solid rgba(230,232,249,0.8);
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .brandHead { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .brandName { font-weight:600; color:#111; }
+    .brandMeta { font-size:0.88rem; color:var(--muted); }
+
+    .badge {
+      display:inline-block; padding:6px 10px; border-radius:999px; font-weight:700; font-size:0.78rem;
+    }
+    .conf-high { background:#effff3; color:#007a2e; border:1px solid #c9f0d0; }
+    .conf-med  { background:#fff8e8; color:#8a5a00; border:1px solid #ffe8bd; }
+    .conf-low  { background:#fff0f2; color:#8b0020; border:1px solid #ffd6dc; }
+
+    .sizeBig { font-size:1.12rem; font-weight:700; color:#111; }
+    .reason { font-size:0.9rem; color:var(--muted); }
+
+    .smallMeta { font-size:0.86rem; color:#5f6770; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .smallMeta button { background:transparent; border:1px dashed rgba(100,110,140,0.12); padding:6px 8px; border-radius:8px; cursor:pointer; color:#5d6a86; font-size:0.85rem; }
+    details pre { margin:0; background: #f6f7fb; padding:8px; border-radius:8px; overflow:auto; border:1px solid #eef0fb; }
+
+    footer { margin-top:18px; color:var(--muted); font-size:0.9rem; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">PD</div>
+      <div>
+        <h1>Prom Dress Size Finder</h1>
+        <p class="lead">Enter your measurements and get recommended sizes across prom dress brands.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <div>
+              <h2 style="margin:0;font-size:1.05rem">Your measurements</h2>
+              <div style="color:var(--muted);font-size:0.9rem">We compare your bust, waist, and hips to brand charts.</div>
+            </div>
+            <div style="font-size:0.85rem;color:var(--muted)"><strong>All in-browser</strong></div>
+          </div>
+
+          <div class="inputs">
+            <div class="field" style="flex:1;">
+              <label for="units">Units</label>
+              <select id="units">
+                <option value="in">Inches (in)</option>
+                <option value="cm">Centimeters (cm)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="bust">Bust / Chest</label>
+              <input id="bust" type="number" step="0.1" placeholder="e.g., 34" />
+            </div>
+
+            <div class="field">
+              <label for="waist">Waist</label>
+              <input id="waist" type="number" step="0.1" placeholder="e.g., 26" />
+            </div>
+
+            <div class="field">
+              <label for="hip">Hips</label>
+              <input id="hip" type="number" step="0.1" placeholder="e.g., 36" />
+            </div>
+
+            <div style="display:flex;flex-direction:column;justify-content:flex-end;">
+              <div class="actions" style="margin-top:6px">
+                <button id="findBtn" class="btn">Find Sizes</button>
+                <button id="clearBtn" class="btn secondary">Clear</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="help">
+            Tip: Stand relaxed while measuring. If you're between sizes, try the larger size for a comfortable fit.
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px 0">How this works</h3>
+          <div style="color:var(--muted);font-size:0.95rem;line-height:1.45">
+            The tool compares your measurements to each brand's size ranges (bust, waist, hips). It allows a small stretch tolerance based on the fabric (stretch_factor). A lower total mismatch means a better fit. Results are sorted from best to less-matching.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: results -->
+      <aside>
+        <div class="card">
+          <div class="resultsHeader">
+            <div>
+              <strong>Results</strong>
+              <div style="color:var(--muted);font-size:0.9rem">Recommendations per brand</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:0.85rem;color:var(--muted)">Confidence</div>
+              <div style="display:flex;gap:6px;justify-content:flex-end;margin-top:6px">
+                <span class="badge conf-high" style="padding:6px 10px;font-weight:600">HIGH</span>
+                <span class="badge conf-med" style="padding:6px 10px;font-weight:600">MED</span>
+                <span class="badge conf-low" style="padding:6px 10px;font-weight:600">LOW</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="resultsArea" style="margin-top:12px">
+            <div style="color:var(--muted)">Enter measurements and click "Find Sizes" to see recommendations here.</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>© Prom Dress Size Finder — data from brand size charts. Always check product-specific measurements for the most accurate fit.</footer>
+  </div>
+
+  <script>
+    // --- BRANDS data: full normalized JSON you provided earlier ---
+    const BRANDS = [
+  {
+    "brand": "Allison & Kelly",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 32.0,
+        "bust_max": 32.0,
+        "waist_min": 24.0,
+        "waist_max": 24.0,
+        "hip_min": 35.75,
+        "hip_max": 35.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 16"
+      },
+      {
+        "label": "S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 37.75,
+        "hip_max": 37.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 16.25"
+      },
+      {
+        "label": "M",
+        "bust_min": 36.0,
+        "bust_max": 36.0,
+        "waist_min": 28.0,
+        "waist_max": 28.0,
+        "hip_min": 39.75,
+        "hip_max": 39.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 16.5"
+      },
+      {
+        "label": "L",
+        "bust_min": 38.0,
+        "bust_max": 38.0,
+        "waist_min": 30.0,
+        "waist_max": 30.0,
+        "hip_min": 41.75,
+        "hip_max": 41.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 16.75"
+      },
+      {
+        "label": "XL",
+        "bust_min": 40.0,
+        "bust_max": 40.0,
+        "waist_min": 32.0,
+        "waist_max": 32.0,
+        "hip_min": 43.75,
+        "hip_max": 43.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 17"
+      }
+    ]
+  },
+  {
+    "brand": "Blondie Nites",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "0",
+        "bust_min": 31.5,
+        "bust_max": 31.5,
+        "waist_min": 24.5,
+        "waist_max": 24.5,
+        "hip_min": 35.25,
+        "hip_max": 35.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "1",
+        "bust_min": 32.5,
+        "bust_max": 32.5,
+        "waist_min": 25.5,
+        "waist_max": 25.5,
+        "hip_min": 36.25,
+        "hip_max": 36.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "3",
+        "bust_min": 33.5,
+        "bust_max": 33.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 37.25,
+        "hip_max": 37.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "5",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 27.5,
+        "waist_max": 27.5,
+        "hip_min": 38.25,
+        "hip_max": 38.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "7",
+        "bust_min": 35.5,
+        "bust_max": 35.5,
+        "waist_min": 28.5,
+        "waist_max": 28.5,
+        "hip_min": 39.25,
+        "hip_max": 39.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "9",
+        "bust_min": 36.5,
+        "bust_max": 36.5,
+        "waist_min": 29.5,
+        "waist_max": 29.5,
+        "hip_min": 40.25,
+        "hip_max": 40.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "11",
+        "bust_min": 38.0,
+        "bust_max": 38.0,
+        "waist_min": 31.0,
+        "waist_max": 31.0,
+        "hip_min": 41.75,
+        "hip_max": 41.75,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "13",
+        "bust_min": 39.5,
+        "bust_max": 39.5,
+        "waist_min": 32.5,
+        "waist_max": 32.5,
+        "hip_min": 43.25,
+        "hip_max": 43.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "CIEBON Cinderella Couture",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "2",
+        "bust_min": 23.0,
+        "bust_max": 23.0,
+        "waist_min": 22.0,
+        "waist_max": 22.0,
+        "hip_min": 35.0,
+        "hip_max": 35.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Measurements vary by style"
+      },
+      {
+        "label": "4",
+        "bust_min": 24.0,
+        "bust_max": 24.0,
+        "waist_min": 23.0,
+        "waist_max": 23.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Measurements vary by style"
+      },
+      {
+        "label": "6",
+        "bust_min": 26.0,
+        "bust_max": 26.0,
+        "waist_min": 24.0,
+        "waist_max": 24.0,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Measurements vary by style"
+      }
+    ]
+  },
+  {
+    "brand": "GB",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "0",
+        "bust_min": 32.5,
+        "bust_max": 32.5,
+        "waist_min": 24.5,
+        "waist_max": 24.5,
+        "hip_min": 35.0,
+        "hip_max": 35.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Social Dresses chart"
+      },
+      {
+        "label": "1",
+        "bust_min": 33.5,
+        "bust_max": 33.5,
+        "waist_min": 25.5,
+        "waist_max": 25.5,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Social Dresses chart"
+      },
+      {
+        "label": "3",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Social Dresses chart"
+      }
+    ]
+  },
+  {
+    "brand": "Gianni Bini",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "0",
+        "bust_min": 33.0,
+        "bust_max": 33.0,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 35.5,
+        "hip_max": 35.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Women's Missy"
+      },
+      {
+        "label": "2",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 28.0,
+        "waist_max": 28.0,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Women's Missy"
+      },
+      {
+        "label": "4",
+        "bust_min": 36.0,
+        "bust_max": 36.0,
+        "waist_min": 29.5,
+        "waist_max": 29.5,
+        "hip_min": 38.5,
+        "hip_max": 38.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Women's Missy"
+      }
+    ]
+  },
+  {
+    "brand": "Jump",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "1/2",
+        "bust_min": 32.5,
+        "bust_max": 32.5,
+        "waist_min": 25.5,
+        "waist_max": 25.5,
+        "hip_min": 35.5,
+        "hip_max": 35.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "3/4",
+        "bust_min": 33.0,
+        "bust_max": 33.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "5/6",
+        "bust_min": 33.5,
+        "bust_max": 33.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 36.5,
+        "hip_max": 36.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Lulus",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 31.0,
+        "bust_max": 32.0,
+        "waist_min": 24.0,
+        "waist_max": 25.0,
+        "hip_min": 34.0,
+        "hip_max": 35.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.05,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "S",
+        "bust_min": 33.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 27.0,
+        "hip_min": 36.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.05,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "M",
+        "bust_min": 35.0,
+        "bust_max": 36.0,
+        "waist_min": 28.0,
+        "waist_max": 29.0,
+        "hip_min": 38.0,
+        "hip_max": 39.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.05,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Mac Duggal",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "0",
+        "bust_min": 33.5,
+        "bust_max": 33.5,
+        "waist_min": 25.5,
+        "waist_max": 25.5,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "2",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "4",
+        "bust_min": 35.5,
+        "bust_max": 35.5,
+        "waist_min": 27.5,
+        "waist_max": 27.5,
+        "hip_min": 38.0,
+        "hip_max": 38.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Morgan & Co.",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "2",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "4",
+        "bust_min": 35.0,
+        "bust_max": 35.0,
+        "waist_min": 27.0,
+        "waist_max": 27.0,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "6",
+        "bust_min": 36.0,
+        "bust_max": 36.0,
+        "waist_min": 28.0,
+        "waist_max": 28.0,
+        "hip_min": 38.0,
+        "hip_max": 38.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Next Up",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 31.5,
+        "bust_max": 32.5,
+        "waist_min": 24.5,
+        "waist_max": 25.5,
+        "hip_min": 34.5,
+        "hip_max": 35.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "S",
+        "bust_min": 33.5,
+        "bust_max": 34.5,
+        "waist_min": 26.5,
+        "waist_max": 27.5,
+        "hip_min": 36.5,
+        "hip_max": 37.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "M",
+        "bust_min": 35.5,
+        "bust_max": 36.5,
+        "waist_min": 28.5,
+        "waist_max": 29.5,
+        "hip_min": 38.5,
+        "hip_max": 39.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "NIA",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 31.0,
+        "bust_max": 32.0,
+        "waist_min": 24.0,
+        "waist_max": 25.0,
+        "hip_min": 34.0,
+        "hip_max": 35.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "S",
+        "bust_min": 33.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 27.0,
+        "hip_min": 36.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "M",
+        "bust_min": 35.0,
+        "bust_max": 36.0,
+        "waist_min": 28.0,
+        "waist_max": 29.0,
+        "hip_min": 38.0,
+        "hip_max": 39.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "B. Darlin",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "1/2",
+        "bust_min": 32.0,
+        "bust_max": 32.0,
+        "waist_min": 27.0,
+        "waist_max": 27.0,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Dress the Population",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 33.5,
+        "bust_max": 34.5,
+        "waist_min": 24.5,
+        "waist_max": 26.5,
+        "hip_min": 35.5,
+        "hip_max": 36.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Dear Moon",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "5",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 24.0,
+        "waist_max": 24.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Honey and Rosie",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 28.0,
+        "bust_max": 30.0,
+        "waist_min": 24.0,
+        "waist_max": 26.0,
+        "hip_min": 32.0,
+        "hip_max": 34.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "City Vibe",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "4, S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Coya Collection",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 35.5,
+        "bust_max": 35.5,
+        "waist_min": 27.5,
+        "waist_max": 27.5,
+        "hip_min": 38.5,
+        "hip_max": 38.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Line and Dot",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Midnight Doll",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "3",
+        "bust_min": 33.0,
+        "bust_max": 33.0,
+        "waist_min": 25.0,
+        "waist_max": 25.0,
+        "hip_min": 35.0,
+        "hip_max": 35.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Pear Culture",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Rumored",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Terani Couture",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "4",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 37.5,
+        "hip_max": 37.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "TOPSHOP",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 33.0,
+        "bust_max": 33.0,
+        "waist_min": 25.0,
+        "waist_max": 25.0,
+        "hip_min": 35.0,
+        "hip_max": 35.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "I.N. San Francisco",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "5",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  }
+];
+
+    // ---------- helpers ----------
+    function toInches(value, units){
+      if (value === "" || value === null || isNaN(Number(value))) return null;
+      return units === "cm" ? Number(value) / 2.54 : Number(value);
+    }
+    function round2(v){ return Math.round(v*100)/100; }
+
+    // matching algorithm (same approach as earlier)
+    function recommendSizeForBrand(brand, user){
+      const sizes = brand.sizes || [];
+      if (!sizes.length) return null;
+      let best = null;
+      for (const s of sizes){
+        let totalDist = 0;
+        let details = {};
+        const sf = s.stretch_factor || 1.0;
+        ['bust','waist','hip'].forEach(k => {
+          const minKey = k + '_min';
+          const maxKey = k + '_max';
+          if (minKey in s && s[minKey] != null){
+            const min = Number(s[minKey]);
+            const max = Number(s[maxKey] != null ? s[maxKey] : s[minKey]);
+            const effectiveMax = max * sf;
+            const userVal = user[k];
+            if (userVal == null){
+              details[k] = { dist: 0, note: 'no input' };
+              return;
+            }
+            if (userVal >= min && userVal <= effectiveMax){
+              details[k] = { dist: 0, note: 'fits' };
+            } else if (userVal < min){
+              const d = min - userVal;
+              details[k] = { dist: d, note: 'too small' };
+              totalDist += d;
+            } else {
+              const d = userVal - effectiveMax;
+              details[k] = { dist: d, note: 'too large' };
+              totalDist += d;
+            }
+          } else {
+            details[k] = { dist: 0, note: 'no chart data' };
+          }
+        });
+        if (best === null || totalDist < best.totalDist){
+          best = { size: s.label + (s.subcategory ? ' ('+s.subcategory+')' : ''), sizeObj: s, totalDist, details };
+        }
+      }
+      if (best){
+        let maxDist = 0, maxKey = null;
+        for (const k of ['bust','waist','hip']){
+          const d = best.details[k] ? best.details[k].dist : 0;
+          if (d > maxDist){ maxDist = d; maxKey = k; }
+        }
+        let reason = '';
+        if (best.totalDist === 0) reason = 'Good fit: all measurements within size ranges.';
+        else if (maxKey) reason = `Closest match but ${maxKey} is off by ${round2(maxDist)} in.`;
+        else reason = 'Closest match (some data missing).';
+        let confidence = 'high';
+        if (best.totalDist === 0) confidence = 'high';
+        else if (best.totalDist <= 2) confidence = 'medium';
+        else confidence = 'low';
+        return { brand: brand.brand, recommended: best.size, totalDist: round2(best.totalDist), reason, confidence, sizeObj: best.sizeObj };
+      }
+      return null;
+    }
+
+    // Render logic
+    function showResults(recs, user){
+      const area = document.getElementById('resultsArea');
+      area.innerHTML = '';
+      if (!recs.length){
+        area.innerHTML = '<div style="color:var(--muted)">No matches found — check inputs or make sure you entered at least one measurement.</div>';
+        return;
+      }
+      // sort by totalDist (best first)
+      recs.sort((a,b) => a.totalDist - b.totalDist);
+
+      const grid = document.createElement('div');
+      grid.className = 'resultsGrid';
+
+      recs.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'brandCard';
+
+        const head = document.createElement('div');
+        head.className = 'brandHead';
+        const title = document.createElement('div');
+        title.innerHTML = `<div class="brandName">${r.brand}</div><div class="brandMeta">${r.sizeObj.subcategory || ''}</div>`;
+        const right = document.createElement('div');
+        right.style.textAlign = 'right';
+        right.innerHTML = `<div class="brandMeta">Recommended</div><div class="sizeBig">${r.recommended}</div>`;
+
+        head.appendChild(title);
+        head.appendChild(right);
+        card.appendChild(head);
+
+        const reason = document.createElement('div');
+        reason.className = 'reason';
+        reason.textContent = `${r.reason} (mismatch: ${r.totalDist} in)`;
+        card.appendChild(reason);
+
+        const conf = document.createElement('div');
+        conf.className = 'smallMeta';
+        const confSpan = document.createElement('span');
+        confSpan.className = 'badge ' + (r.confidence === 'high' ? 'conf-high' : r.confidence === 'medium' ? 'conf-med' : 'conf-low');
+        confSpan.textContent = r.confidence.toUpperCase();
+        conf.appendChild(confSpan);
+
+        const viewBtn = document.createElement('button');
+        viewBtn.textContent = 'View chart';
+        viewBtn.onclick = () => {
+          // open a details modal-ish inline
+          const details = document.createElement('details');
+          const summary = document.createElement('summary');
+          summary.textContent = 'Size chart entry (click to close)';
+          details.appendChild(summary);
+          const pre = document.createElement('pre');
+          pre.textContent = JSON.stringify(r.sizeObj, null, 2);
+          details.appendChild(pre);
+          // show toast-like
+          const overlay = document.createElement('div');
+          overlay.style.position = 'fixed';
+          overlay.style.left = '50%';
+          overlay.style.top = '50%';
+          overlay.style.transform = 'translate(-50%,-50%)';
+          overlay.style.zIndex = 9999;
+          overlay.style.maxWidth = '80%';
+          overlay.style.boxShadow = '0 24px 60px rgba(8,16,48,0.35)';
+          overlay.style.borderRadius = '12px';
+          overlay.style.padding = '18px';
+          overlay.style.background = 'white';
+          overlay.appendChild(details);
+          const close = document.createElement('div');
+          close.style.textAlign = 'right';
+          close.style.marginTop = '10px';
+          const closeBtn = document.createElement('button');
+          closeBtn.textContent = 'Close';
+          closeBtn.className = 'btn secondary';
+          closeBtn.onclick = () => { document.body.removeChild(overlay); };
+          close.appendChild(closeBtn);
+          overlay.appendChild(close);
+          document.body.appendChild(overlay);
+        };
+        conf.appendChild(viewBtn);
+
+        // measurement breakdown
+        const breakdiv = document.createElement('div');
+        breakdiv.style.marginTop = '6px';
+        breakdiv.style.fontSize = '0.9rem';
+        breakdiv.textContent = `Measurements used — Bust: ${user.bust ? user.bust + ' in' : '—'}, Waist: ${user.waist ? user.waist + ' in' : '—'}, Hip: ${user.hip ? user.hip + ' in' : '—'}`;
+
+        card.appendChild(conf);
+        card.appendChild(breakdiv);
+
+        grid.appendChild(card);
+      });
+
+      area.appendChild(grid);
+    }
+
+    // Event handlers
+    document.getElementById('findBtn').addEventListener('click', () => {
+      const units = document.getElementById('units').value;
+      const rawBust = document.getElementById('bust').value;
+      const rawWaist = document.getElementById('waist').value;
+      const rawHip = document.getElementById('hip').value;
+      const bust = toInches(rawBust, units);
+      const waist = toInches(rawWaist, units);
+      const hip = toInches(rawHip, units);
+      if ((bust==null || isNaN(bust)) && (waist==null || isNaN(waist)) && (hip==null || isNaN(hip))) {
+        alert('Please enter at least one measurement (bust, waist, or hip).');
+        return;
+      }
+      const user = { bust: bust ? round2(bust) : null, waist: waist ? round2(waist) : null, hip: hip ? round2(hip) : null };
+
+      const recs = [];
+      for (const brand of BRANDS){
+        // convert brand units cm -> in if needed
+        const brandUnits = brand.units || 'in';
+        let brandCopy = JSON.parse(JSON.stringify(brand));
+        if (brandUnits === 'cm'){
+          for (const s of brandCopy.sizes){
+            ['bust_min','bust_max','waist_min','waist_max','hip_min','hip_max'].forEach(k => {
+              if (k in s && s[k] != null) s[k] = Number(s[k]) / 2.54;
+            });
+          }
+        }
+        const rec = recommendSizeForBrand(brandCopy, user);
+        if (rec) recs.push(rec);
+      }
+      showResults(recs, user);
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      document.getElementById('bust').value = '';
+      document.getElementById('waist').value = '';
+      document.getElementById('hip').value = '';
+      document.getElementById('resultsArea').innerHTML = '<div style="color:var(--muted)">Enter measurements and click "Find Sizes" to see recommendations here.</div>';
+    });
+
+    ['bust','waist','hip'].forEach(id => {
+      document.getElementById(id).addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') document.getElementById('findBtn').click();
+      });
+    });
+  </script>
+</body>
+</html>
