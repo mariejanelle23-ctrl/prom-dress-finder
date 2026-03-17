@@ -1,0 +1,882 @@
+
+  {
+    "brand": "Allison & Kelly",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 32.0,
+        "bust_max": 32.0,
+        "waist_min": 24.0,
+        "waist_max": 24.0,
+        "hip_min": 35.75,
+        "hip_max": 35.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 16"
+      },
+      {
+        "label": "S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 37.75,
+        "hip_max": 37.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 16.25"
+      },
+      {
+        "label": "M",
+        "bust_min": 36.0,
+        "bust_max": 36.0,
+        "waist_min": 28.0,
+        "waist_max": 28.0,
+        "hip_min": 39.75,
+        "hip_max": 39.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 16.5"
+      },
+      {
+        "label": "L",
+        "bust_min": 38.0,
+        "bust_max": 38.0,
+        "waist_min": 30.0,
+        "waist_max": 30.0,
+        "hip_min": 41.75,
+        "hip_max": 41.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 16.75"
+      },
+      {
+        "label": "XL",
+        "bust_min": 40.0,
+        "bust_max": 40.0,
+        "waist_min": 32.0,
+        "waist_max": 32.0,
+        "hip_min": 43.75,
+        "hip_max": 43.75,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Torso: 17"
+      }
+    ]
+  },
+  {
+    "brand": "Blondie Nites",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "0",
+        "bust_min": 31.5,
+        "bust_max": 31.5,
+        "waist_min": 24.5,
+        "waist_max": 24.5,
+        "hip_min": 35.25,
+        "hip_max": 35.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "1",
+        "bust_min": 32.5,
+        "bust_max": 32.5,
+        "waist_min": 25.5,
+        "waist_max": 25.5,
+        "hip_min": 36.25,
+        "hip_max": 36.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "3",
+        "bust_min": 33.5,
+        "bust_max": 33.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 37.25,
+        "hip_max": 37.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "5",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 27.5,
+        "waist_max": 27.5,
+        "hip_min": 38.25,
+        "hip_max": 38.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "7",
+        "bust_min": 35.5,
+        "bust_max": 35.5,
+        "waist_min": 28.5,
+        "waist_max": 28.5,
+        "hip_min": 39.25,
+        "hip_max": 39.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "9",
+        "bust_min": 36.5,
+        "bust_max": 36.5,
+        "waist_min": 29.5,
+        "waist_max": 29.5,
+        "hip_min": 40.25,
+        "hip_max": 40.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "11",
+        "bust_min": 38.0,
+        "bust_max": 38.0,
+        "waist_min": 31.0,
+        "waist_max": 31.0,
+        "hip_min": 41.75,
+        "hip_max": 41.75,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "13",
+        "bust_min": 39.5,
+        "bust_max": 39.5,
+        "waist_min": 32.5,
+        "waist_max": 32.5,
+        "hip_min": 43.25,
+        "hip_max": 43.25,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "CIEBON Cinderella Couture",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "2",
+        "bust_min": 23.0,
+        "bust_max": 23.0,
+        "waist_min": 22.0,
+        "waist_max": 22.0,
+        "hip_min": 35.0,
+        "hip_max": 35.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Measurements vary by style"
+      },
+      {
+        "label": "4",
+        "bust_min": 24.0,
+        "bust_max": 24.0,
+        "waist_min": 23.0,
+        "waist_max": 23.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Measurements vary by style"
+      },
+      {
+        "label": "6",
+        "bust_min": 26.0,
+        "bust_max": 26.0,
+        "waist_min": 24.0,
+        "waist_max": 24.0,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Measurements vary by style"
+      }
+    ]
+  },
+  {
+    "brand": "GB",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "0",
+        "bust_min": 32.5,
+        "bust_max": 32.5,
+        "waist_min": 24.5,
+        "waist_max": 24.5,
+        "hip_min": 35.0,
+        "hip_max": 35.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Social Dresses chart"
+      },
+      {
+        "label": "1",
+        "bust_min": 33.5,
+        "bust_max": 33.5,
+        "waist_min": 25.5,
+        "waist_max": 25.5,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Social Dresses chart"
+      },
+      {
+        "label": "3",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Social Dresses chart"
+      }
+    ]
+  },
+  {
+    "brand": "Gianni Bini",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "0",
+        "bust_min": 33.0,
+        "bust_max": 33.0,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 35.5,
+        "hip_max": 35.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Women's Missy"
+      },
+      {
+        "label": "2",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 28.0,
+        "waist_max": 28.0,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Women's Missy"
+      },
+      {
+        "label": "4",
+        "bust_min": 36.0,
+        "bust_max": 36.0,
+        "waist_min": 29.5,
+        "waist_max": 29.5,
+        "hip_min": 38.5,
+        "hip_max": 38.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": "Women's Missy"
+      }
+    ]
+  },
+  {
+    "brand": "Jump",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "1/2",
+        "bust_min": 32.5,
+        "bust_max": 32.5,
+        "waist_min": 25.5,
+        "waist_max": 25.5,
+        "hip_min": 35.5,
+        "hip_max": 35.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "3/4",
+        "bust_min": 33.0,
+        "bust_max": 33.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "5/6",
+        "bust_min": 33.5,
+        "bust_max": 33.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 36.5,
+        "hip_max": 36.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Lulus",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 31.0,
+        "bust_max": 32.0,
+        "waist_min": 24.0,
+        "waist_max": 25.0,
+        "hip_min": 34.0,
+        "hip_max": 35.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.05,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "S",
+        "bust_min": 33.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 27.0,
+        "hip_min": 36.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.05,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "M",
+        "bust_min": 35.0,
+        "bust_max": 36.0,
+        "waist_min": 28.0,
+        "waist_max": 29.0,
+        "hip_min": 38.0,
+        "hip_max": 39.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.05,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Mac Duggal",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "0",
+        "bust_min": 33.5,
+        "bust_max": 33.5,
+        "waist_min": 25.5,
+        "waist_max": 25.5,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "2",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "4",
+        "bust_min": 35.5,
+        "bust_max": 35.5,
+        "waist_min": 27.5,
+        "waist_max": 27.5,
+        "hip_min": 38.0,
+        "hip_max": 38.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Morgan & Co.",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "2",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "4",
+        "bust_min": 35.0,
+        "bust_max": 35.0,
+        "waist_min": 27.0,
+        "waist_max": 27.0,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "6",
+        "bust_min": 36.0,
+        "bust_max": 36.0,
+        "waist_min": 28.0,
+        "waist_max": 28.0,
+        "hip_min": 38.0,
+        "hip_max": 38.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Next Up",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 31.5,
+        "bust_max": 32.5,
+        "waist_min": 24.5,
+        "waist_max": 25.5,
+        "hip_min": 34.5,
+        "hip_max": 35.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "S",
+        "bust_min": 33.5,
+        "bust_max": 34.5,
+        "waist_min": 26.5,
+        "waist_max": 27.5,
+        "hip_min": 36.5,
+        "hip_max": 37.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "M",
+        "bust_min": 35.5,
+        "bust_max": 36.5,
+        "waist_min": 28.5,
+        "waist_max": 29.5,
+        "hip_min": 38.5,
+        "hip_max": 39.5,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "NIA",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 31.0,
+        "bust_max": 32.0,
+        "waist_min": 24.0,
+        "waist_max": 25.0,
+        "hip_min": 34.0,
+        "hip_max": 35.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "S",
+        "bust_min": 33.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 27.0,
+        "hip_min": 36.0,
+        "hip_max": 37.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      },
+      {
+        "label": "M",
+        "bust_min": 35.0,
+        "bust_max": 36.0,
+        "waist_min": 28.0,
+        "waist_max": 29.0,
+        "hip_min": 38.0,
+        "hip_max": 39.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "B. Darlin",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "1/2",
+        "bust_min": 32.0,
+        "bust_max": 32.0,
+        "waist_min": 27.0,
+        "waist_max": 27.0,
+        "hip_min": 37.0,
+        "hip_max": 37.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Dress the Population",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "XS",
+        "bust_min": 33.5,
+        "bust_max": 34.5,
+        "waist_min": 24.5,
+        "waist_max": 26.5,
+        "hip_min": 35.5,
+        "hip_max": 36.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Dear Moon",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "5",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 24.0,
+        "waist_max": 24.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Honey and Rosie",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 28.0,
+        "bust_max": 30.0,
+        "waist_min": 24.0,
+        "waist_max": 26.0,
+        "hip_min": 32.0,
+        "hip_max": 34.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "City Vibe",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "4, S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Coya Collection",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 35.5,
+        "bust_max": 35.5,
+        "waist_min": 27.5,
+        "waist_max": 27.5,
+        "hip_min": 38.5,
+        "hip_max": 38.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Line and Dot",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Midnight Doll",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "3",
+        "bust_min": 33.0,
+        "bust_max": 33.0,
+        "waist_min": 25.0,
+        "waist_max": 25.0,
+        "hip_min": 35.0,
+        "hip_max": 35.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Pear Culture",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Rumored",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "Terani Couture",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "4",
+        "bust_min": 34.5,
+        "bust_max": 34.5,
+        "waist_min": 26.5,
+        "waist_max": 26.5,
+        "hip_min": 37.5,
+        "hip_max": 37.5,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "TOPSHOP",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "S",
+        "bust_min": 33.0,
+        "bust_max": 33.0,
+        "waist_min": 25.0,
+        "waist_max": 25.0,
+        "hip_min": 35.0,
+        "hip_max": 35.0,
+        "subcategory": "regular",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "brand": "I.N. San Francisco",
+    "category": "prom-dresses",
+    "units": "in",
+    "last_updated": "2026-02-25",
+    "sizes": [
+      {
+        "label": "5",
+        "bust_min": 34.0,
+        "bust_max": 34.0,
+        "waist_min": 26.0,
+        "waist_max": 26.0,
+        "hip_min": 36.0,
+        "hip_max": 36.0,
+        "subcategory": "junior",
+        "stretch_factor": 1.0,
+        "source_url": "[URL]",
+        "notes": ""
+      }
+    ]
+  }
