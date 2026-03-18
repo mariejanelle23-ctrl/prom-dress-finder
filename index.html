@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <title>Prom Dress Size Finder — Stylish</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -48,7 +47,6 @@
     }
     @media (max-width:980px){ .grid{ grid-template-columns: 1fr; } }
 
-    /* Input card (glass) */
     .card{
       background: var(--card-bg);
       border-radius: var(--radius);
@@ -61,12 +59,12 @@
     .inputs { display:flex; gap:12px; flex-wrap:wrap; align-items:end; }
     .field { display:flex; flex-direction:column; min-width:140px; }
     label{ font-size:0.85rem; color:var(--muted); margin-bottom:6px; }
-    input[type="number"], select {
+    input[type="number"], input[type="text"], select {
       padding:12px 10px; font-size:1rem; border-radius:10px; border:1px solid #e6e9f2;
       background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,247,255,0.9));
       outline:none;
     }
-    input[type="number"]:focus, select:focus { box-shadow: 0 6px 18px rgba(106,108,255,0.08); border-color:var(--accent1); }
+    input:focus, select:focus { box-shadow: 0 6px 18px rgba(106,108,255,0.08); border-color:var(--accent1); }
 
     .actions { display:flex; gap:10px; align-items:center; margin-top:6px; }
     .btn {
@@ -81,8 +79,15 @@
 
     .help { font-size:0.92rem; color:var(--muted); margin-top:10px; }
 
-    /* Results column */
-    .resultsHeader { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+    .resultsHeader { display:flex; flex-direction:column; gap:12px; margin-bottom:12px; }
+    .resultsTopRow { display:flex; justify-content:space-between; align-items:center; }
+    
+    .searchBox { width: 100%; position: relative; }
+    .searchBox input { width: 100%; padding-left: 35px; }
+    .searchBox::before {
+        content: '🔍'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; opacity: 0.5;
+    }
+
     .resultsGrid { display:grid; grid-template-columns: repeat(2,1fr); gap:12px; }
     @media (max-width:720px){ .resultsGrid{ grid-template-columns: 1fr; } }
 
@@ -119,7 +124,7 @@
       <div class="logo">PD</div>
       <div>
         <h1>Prom Dress Size Finder</h1>
-        <p class="lead">Enter your measurements and get recommended sizes across prom dress brands.</p>
+        <p class="lead">Enter measurements once, see your size in every brand instantly.</p>
       </div>
     </header>
 
@@ -129,9 +134,9 @@
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
             <div>
               <h2 style="margin:0;font-size:1.05rem">Your measurements</h2>
-              <div style="color:var(--muted);font-size:0.9rem">We compare your bust, waist, and hips to brand charts.</div>
+              <div style="color:var(--muted);font-size:0.9rem">Compare your bust, waist, and hips.</div>
             </div>
-            <div style="font-size:0.85rem;color:var(--muted)"><strong>All in-browser</strong></div>
+            <div style="font-size:0.85rem;color:var(--muted)"><strong>Local & Private</strong></div>
           </div>
 
           <div class="inputs">
@@ -142,32 +147,24 @@
                 <option value="cm">Centimeters (cm)</option>
               </select>
             </div>
-
             <div class="field">
               <label for="bust">Bust / Chest</label>
               <input id="bust" type="number" step="0.1" placeholder="e.g., 34" />
             </div>
-
             <div class="field">
               <label for="waist">Waist</label>
               <input id="waist" type="number" step="0.1" placeholder="e.g., 26" />
             </div>
-
             <div class="field">
               <label for="hip">Hips</label>
               <input id="hip" type="number" step="0.1" placeholder="e.g., 36" />
             </div>
-
             <div style="display:flex;flex-direction:column;justify-content:flex-end;">
               <div class="actions" style="margin-top:6px">
                 <button id="findBtn" class="btn">Find Sizes</button>
                 <button id="clearBtn" class="btn secondary">Clear</button>
               </div>
             </div>
-          </div>
-
-          <div class="help">
-            Tip: Stand relaxed while measuring. If you're between sizes, try the larger size for a comfortable fit.
           </div>
         </div>
 
@@ -176,51 +173,55 @@
         <div class="card">
           <h3 style="margin:0 0 8px 0">How this works</h3>
           <div style="color:var(--muted);font-size:0.95rem;line-height:1.45">
-            The tool compares your measurements to each brand's size ranges (bust, waist, hips). It allows a small stretch tolerance based on the fabric (stretch_factor). A lower total mismatch means a better fit. Results are sorted from best to less-matching.
+            The tool compares your measurements to each brand's size ranges. A lower "mismatch" means a better fit. Results update automatically as you search.
           </div>
         </div>
       </div>
 
-      <!-- Right column: results -->
       <aside>
         <div class="card">
           <div class="resultsHeader">
-            <div>
-              <strong>Results</strong>
-              <div style="color:var(--muted);font-size:0.9rem">Recommendations per brand</div>
+            <div class="resultsTopRow">
+                <div>
+                  <strong>Results</strong>
+                  <div style="color:var(--muted);font-size:0.9rem">Recommended sizes</div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-size:0.85rem;color:var(--muted)">Confidence</div>
+                  <div style="display:flex;gap:4px;justify-content:flex-end;margin-top:4px">
+                    <span class="badge conf-high" style="padding:2px 6px;">H</span>
+                    <span class="badge conf-med" style="padding:2px 6px;">M</span>
+                    <span class="badge conf-low" style="padding:2px 6px;">L</span>
+                  </div>
+                </div>
             </div>
-            <div style="text-align:right">
-              <div style="font-size:0.85rem;color:var(--muted)">Confidence</div>
-              <div style="display:flex;gap:6px;justify-content:flex-end;margin-top:6px">
-                <span class="badge conf-high" style="padding:6px 10px;font-weight:600">HIGH</span>
-                <span class="badge conf-med" style="padding:6px 10px;font-weight:600">MED</span>
-                <span class="badge conf-low" style="padding:6px 10px;font-weight:600">LOW</span>
-              </div>
+            
+            <div class="searchBox">
+                <input type="text" id="brandSearch" placeholder="Search brands (e.g. Free People)...">
             </div>
           </div>
 
           <div id="resultsArea" style="margin-top:12px">
-            <div style="color:var(--muted)">Enter measurements and click "Find Sizes" to see recommendations here.</div>
+            <div style="color:var(--muted)">Enter measurements and click "Find Sizes" to see recommendations.</div>
           </div>
         </div>
       </aside>
     </div>
 
-    <footer>© Prom Dress Size Finder — data from brand size charts. Always check product-specific measurements for the most accurate fit.</footer>
+    <footer>© Prom Dress Size Finder — Data-driven fashion utility.</footer>
   </div>
 
   <script>
-    // --- BRANDS data: full normalized JSON you provided earlier ---
-    let BRANDS = []; // This starts empty and will be filled by the fetch command;
+    let BRANDS = [];
+    let LATEST_RECS = []; // Store the last calculated recs for filtering
 
-    // ---------- helpers ----------
+    // --- Helpers ---
     function toInches(value, units){
       if (value === "" || value === null || isNaN(Number(value))) return null;
       return units === "cm" ? Number(value) / 2.54 : Number(value);
     }
     function round2(v){ return Math.round(v*100)/100; }
 
-    // matching algorithm (same approach as earlier)
     function recommendSizeForBrand(brand, user){
       const sizes = brand.sizes || [];
       if (!sizes.length) return null;
@@ -266,174 +267,91 @@
           const d = best.details[k] ? best.details[k].dist : 0;
           if (d > maxDist){ maxDist = d; maxKey = k; }
         }
-        let reason = '';
-        if (best.totalDist === 0) reason = 'Good fit: all measurements within size ranges.';
-        else if (maxKey) reason = `Closest match but ${maxKey} is off by ${round2(maxDist)} in.`;
-        else reason = 'Closest match (some data missing).';
-        let confidence = 'high';
-        if (best.totalDist === 0) confidence = 'high';
-        else if (best.totalDist <= 2) confidence = 'medium';
-        else confidence = 'low';
-        return { brand: brand.brand, recommended: best.size, totalDist: round2(best.totalDist), reason, confidence, sizeObj: best.sizeObj };
+        let confidence = best.totalDist === 0 ? 'high' : best.totalDist <= 2 ? 'medium' : 'low';
+        return { brand: brand.brand, recommended: best.size, totalDist: round2(best.totalDist), confidence, sizeObj: best.sizeObj, item: brand.item };
       }
       return null;
     }
 
-    // Render logic
-    function showResults(recs, user){
+    function renderRecs(recs, user) {
       const area = document.getElementById('resultsArea');
+      const searchTerm = document.getElementById('brandSearch').value.toLowerCase();
       area.innerHTML = '';
-      if (!recs.length){
-        area.innerHTML = '<div style="color:var(--muted)">No matches found — check inputs or make sure you entered at least one measurement.</div>';
+
+      const filtered = recs.filter(r => r.brand.toLowerCase().includes(searchTerm));
+
+      if (!filtered.length){
+        area.innerHTML = '<div style="color:var(--muted)">No matching results.</div>';
         return;
       }
-      // sort by totalDist (best first)
-      recs.sort((a,b) => a.totalDist - b.totalDist);
 
       const grid = document.createElement('div');
       grid.className = 'resultsGrid';
 
-      recs.forEach(r => {
+      filtered.forEach(r => {
         const card = document.createElement('div');
         card.className = 'brandCard';
-
-        const head = document.createElement('div');
-        head.className = 'brandHead';
-        const title = document.createElement('div');
-        title.innerHTML = `<div class="brandName">${r.brand}</div><div class="brandMeta">${r.sizeObj.subcategory || ''}</div>`;
-        const right = document.createElement('div');
-        right.style.textAlign = 'right';
-        right.innerHTML = `<div class="brandMeta">Recommended</div><div class="sizeBig">${r.recommended}</div>`;
-
-        head.appendChild(title);
-        head.appendChild(right);
-        card.appendChild(head);
-
-        const reason = document.createElement('div');
-        reason.className = 'reason';
-        reason.textContent = `${r.reason} (mismatch: ${r.totalDist} in)`;
-        card.appendChild(reason);
-
-        const conf = document.createElement('div');
-        conf.className = 'smallMeta';
-        const confSpan = document.createElement('span');
-        confSpan.className = 'badge ' + (r.confidence === 'high' ? 'conf-high' : r.confidence === 'medium' ? 'conf-med' : 'conf-low');
-        confSpan.textContent = r.confidence.toUpperCase();
-        conf.appendChild(confSpan);
-
-        const viewBtn = document.createElement('button');
-        viewBtn.textContent = 'View chart';
-        viewBtn.onclick = () => {
-          // open a details modal-ish inline
-          const details = document.createElement('details');
-          const summary = document.createElement('summary');
-          summary.textContent = 'Size chart entry (click to close)';
-          details.appendChild(summary);
-          const pre = document.createElement('pre');
-          pre.textContent = JSON.stringify(r.sizeObj, null, 2);
-          details.appendChild(pre);
-          // show toast-like
-          const overlay = document.createElement('div');
-          overlay.style.position = 'fixed';
-          overlay.style.left = '50%';
-          overlay.style.top = '50%';
-          overlay.style.transform = 'translate(-50%,-50%)';
-          overlay.style.zIndex = 9999;
-          overlay.style.maxWidth = '80%';
-          overlay.style.boxShadow = '0 24px 60px rgba(8,16,48,0.35)';
-          overlay.style.borderRadius = '12px';
-          overlay.style.padding = '18px';
-          overlay.style.background = 'white';
-          overlay.appendChild(details);
-          const close = document.createElement('div');
-          close.style.textAlign = 'right';
-          close.style.marginTop = '10px';
-          const closeBtn = document.createElement('button');
-          closeBtn.textContent = 'Close';
-          closeBtn.className = 'btn secondary';
-          closeBtn.onclick = () => { document.body.removeChild(overlay); };
-          close.appendChild(closeBtn);
-          overlay.appendChild(close);
-          document.body.appendChild(overlay);
-        };
-        conf.appendChild(viewBtn);
-
-        // measurement breakdown
-        const breakdiv = document.createElement('div');
-        breakdiv.style.marginTop = '6px';
-        breakdiv.style.fontSize = '0.9rem';
-        breakdiv.textContent = `Measurements used — Bust: ${user.bust ? user.bust + ' in' : '—'}, Waist: ${user.waist ? user.waist + ' in' : '—'}, Hip: ${user.hip ? user.hip + ' in' : '—'}`;
-
-        card.appendChild(conf);
-        card.appendChild(breakdiv);
-
+        card.innerHTML = `
+          <div class="brandHead">
+            <div><div class="brandName">${r.brand}</div><div class="brandMeta">${r.item || ''}</div></div>
+            <div style="text-align:right"><div class="brandMeta">Size</div><div class="sizeBig">${r.recommended}</div></div>
+          </div>
+          <div class="reason" style="font-size:0.8rem">Mismatch: ${r.totalDist} in</div>
+          <div class="smallMeta">
+            <span class="badge ${r.confidence === 'high' ? 'conf-high' : r.confidence === 'medium' ? 'conf-med' : 'conf-low'}">${r.confidence.toUpperCase()}</span>
+          </div>
+        `;
         grid.appendChild(card);
       });
-
       area.appendChild(grid);
     }
 
-    // Event handlers
+    // --- Listeners ---
     document.getElementById('findBtn').addEventListener('click', () => {
       const units = document.getElementById('units').value;
-      const rawBust = document.getElementById('bust').value;
-      const rawWaist = document.getElementById('waist').value;
-      const rawHip = document.getElementById('hip').value;
-      const bust = toInches(rawBust, units);
-      const waist = toInches(rawWaist, units);
-      const hip = toInches(rawHip, units);
-      
-      if ((bust==null || isNaN(bust)) && (waist==null || isNaN(waist)) && (hip==null || isNaN(hip))) {
-        alert('Please enter at least one measurement (bust, waist, or hip).');
+      const user = { 
+        bust: toInches(document.getElementById('bust').value, units),
+        waist: toInches(document.getElementById('waist').value, units),
+        hip: toInches(document.getElementById('hip').value, units)
+      };
+
+      if (!user.bust && !user.waist && !user.hip) {
+        alert('Enter at least one measurement.');
         return;
       }
-      
-      const user = { bust: bust ? round2(bust) : null, waist: waist ? round2(waist) : null, hip: hip ? round2(hip) : null };
 
-      const recs = [];
-      for (const brand of BRANDS){
-        const brandUnits = brand.units || 'in';
-        let brandCopy = JSON.parse(JSON.stringify(brand));
-        if (brandUnits === 'cm'){
-          for (const s of brandCopy.sizes){
-            ['bust_min','bust_max','waist_min','waist_max','hip_min','hip_max'].forEach(k => {
-              if (k in s && s[k] != null) s[k] = Number(s[k]) / 2.54;
-            });
-          }
-        }
-        const rec = recommendSizeForBrand(brandCopy, user);
-        if (rec) recs.push(rec);
-      }
-      showResults(recs, user);
+      LATEST_RECS = [];
+      BRANDS.forEach(brand => {
+        const rec = recommendSizeForBrand(brand, user);
+        if (rec) LATEST_RECS.push(rec);
+      });
+
+      renderRecs(LATEST_RECS, user);
+    });
+
+    document.getElementById('brandSearch').addEventListener('input', () => {
+        const units = document.getElementById('units').value;
+        const user = { 
+            bust: toInches(document.getElementById('bust').value, units),
+            waist: toInches(document.getElementById('waist').value, units),
+            hip: toInches(document.getElementById('hip').value, units)
+        };
+        renderRecs(LATEST_RECS, user);
     });
 
     document.getElementById('clearBtn').addEventListener('click', () => {
-      document.getElementById('bust').value = '';
-      document.getElementById('waist').value = '';
-      document.getElementById('hip').value = '';
-      document.getElementById('resultsArea').innerHTML = '<div style="color:var(--muted)">Enter measurements and click "Find Sizes" to see recommendations here.</div>';
+      location.reload();
     });
 
-    ['bust','waist','hip'].forEach(id => {
-      document.getElementById(id).addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') document.getElementById('findBtn').click();
-      });
-    });
-
-    // --- DATA LOADING SECTION ---
     async function loadBrandData() {
       try {
         const response = await fetch('brands.json');
-        if (!response.ok) throw new Error("Could not find brands.json");
+        if (!response.ok) throw new Error("File missing");
         BRANDS = await response.json();
-        console.log("Data loaded successfully!");
-      } catch (error) {
-        console.error("Error loading the brand data:", error);
-        document.getElementById('resultsArea').innerHTML = 
-          "<div style='color:red'>Error loading size charts. Make sure brands.json is in the same folder as index.html.</div>";
+      } catch (e) {
+        document.getElementById('resultsArea').innerHTML = "<div style='color:red'>Error: brands.json not found.</div>";
       }
     }
-
     loadBrandData();
   </script>
 </body>
